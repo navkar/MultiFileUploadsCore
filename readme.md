@@ -8,13 +8,6 @@
 | --- | --- 
 | ![postman](screenshots/1.PNG?raw=true ) | ![postman](screenshots/2.PNG?raw=true )
 
-## URL
-
-```
-
-POST https://localhost:44315/api/graphql 
-
-```
 
 ### Model class for file uploads
 
