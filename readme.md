@@ -1,6 +1,7 @@
 ## References
 
 * [asp-net-core](http://fiyazhasan.me/story-of-file-uploading-in-asp-net-core-part-i-mvc/)
+* [EditableInvoice](https://css-tricks.com/examples/EditableInvoice/)
 
 ## Screenshots
 
