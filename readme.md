@@ -55,3 +55,32 @@ TickIdGet-ID 97: AB6C1E4A5DE
 TickIdGet-ID 98: AB6C1E4B8F1
 TickIdGet-ID 99: AB6C1E4CA37
 ```
+
+```csharp
+
+public override bool FinishedLaunching(UIApplication app, NSDictionary options)
+{
+    global::Xamarin.Forms.Forms.Init();
+    LoadApplication(new App());
+
+    MessagingCenter.Subscribe<SignaturePadView>(this, "AllowLandscape", sender =>
+    {
+
+        long value = (long)UIInterfaceOrientation.LandscapeLeft;
+        UIDevice.CurrentDevice.SetValueForKey(new NSNumber(value), new NSString("orientation"));
+        UIViewController.AttemptRotationToDeviceOrientation();
+    });
+    
+    //forces app to portrait mode after closing a Page containing only a Plot
+    MessagingCenter.Subscribe<SignaturePadView>(this, "PreventLandscape", sender =>
+    {
+        long value = (long)UIInterfaceOrientation.Portrait;
+        UIDevice.CurrentDevice.SetValueForKey(new NSNumber(value), new NSString("orientation"));
+        UIViewController.AttemptRotationToDeviceOrientation();
+    });
+
+    return base.FinishedLaunching(app, options);
+}
+    
+```
+
